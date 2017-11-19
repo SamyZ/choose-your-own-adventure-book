@@ -1,41 +1,33 @@
 // @flow
 import * as React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import red from 'material-ui/colors/red';
+import teal from 'material-ui/colors/teal';
 
-import Menu from './views/Menu';
+import Home from './views/Home';
+import BookMenu from './views/BookMenu';
+import About from './views/About';
 import Page from './views/Page';
-import Character from './Character';
-import type { CharacterType } from './Character';
 
-type State = {
-  pageNumber: number,
-  Character: Character,
-};
+const theme = createMuiTheme({
+  palette: {
+    primary: red,
+    secondary: teal,
+  },
+});
 
-export default class extends React.Component<{}, State> {
-  state = { pageNumber: 0, Character: new Character() };
+const App = () => (
+  <MuiThemeProvider theme={theme}>
+    <Router>
+      <div style={{ height: '100%', width: '100%' }}>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/books/:bookId" component={BookMenu} />
+        <Route exact path="/books/:bookId/:pageId" component={Page} />
+      </div>
+    </Router>
+  </MuiThemeProvider>
+);
 
-  handleNewClick = () => {
-    console.log('handleNewClick');
-    this.setState({ pageNumber: 1 });
-  };
-
-  handleContinueClick = () => {
-    console.log('handleContinueClick');
-  };
-
-  handleAboutClick = () => {
-    console.log('handleAboutClick');
-  };
-
-  render() {
-    return this.state.pageNumber ? (
-      <Page />
-    ) : (
-      <Menu
-        onNewClick={this.handleNewClick}
-        onContinueClick={this.handleContinueClick}
-        onAboutClick={this.handleAboutClick}
-      />
-    );
-  }
-}
+export default App;

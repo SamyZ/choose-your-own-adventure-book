@@ -1,5 +1,11 @@
 {
   "title": "Introduction",
   "content":
-    "This is a solo adventure for the Call of Cthulhu game. It is a horror story set in the 1920s where you are the main character, and your choices determine the outcome. It is also designed to lead you through the basic rules of the Call of Chtulhu game in a gradual and entertaining fashion. Although most such adventures are played with your friends, this one is just for you. Before you begin to play. You don’t need to read the Call of Chtulu rules before you start playing. Just settle in a comfortable chair before a roaring fire. Then read on and follow the instructions. …On second thoughts, don’t sit too close to the fire. "
+    "This is a solo adventure for the Call of Cthulhu game. It is a horror story set in the 1920s where you are the main character, and your choices determine the outcome. It is also designed to lead you through the basic rules of the Call of Chtulhu game in a gradual and entertaining fashion. Although most such adventures are played with your friends, this one is just for you. Before you begin to play. You don’t need to read the Call of Chtulu rules before you start playing. Just settle in a comfortable chair before a roaring fire. Then read on and follow the instructions. …On second thoughts, don’t sit too close to the fire.",
+  "transitions": [
+    {
+      "label": "continue",
+      "to": [{ "page": 2, "probability": 1 }]
+    }
+  ]
 }

@@ -1,51 +1,28 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
 
-import styles from './styles';
-
 const bookMenuStyles = theme => ({
-  main: {
-    background: styles.mainBackground,
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '100%',
-  },
+  main: theme.main,
   header: {
-    ...styles.flexCentered,
+    ...theme.header,
     flexDirection: 'column',
-    flexShrink: 0,
-    height: '150px',
-    color: styles.menuTextColor,
-    textTransform: 'uppercase',
+    alignItems: 'center',
   },
-  footer: {
-    ...styles.flexCentered,
-    flexShrink: 0,
-  },
+  footer: theme.footer,
+  button: theme.button,
   actions: {
+    ...theme.content,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    flex: '1 0 auto',
-  },
-  button: {
-    marginBottom: '40px',
-    width: styles.buttonWidth,
   },
   bookAuthor: {
     paddingTop: '0.8rem',
     fontSize: '0.8rem',
-  },
-  buttonAbout: {
-    marginBottom: '40px',
-    width: styles.buttonWidth,
-    background: styles.secondaryButtonColor,
-    color: styles.menuTextColor,
   },
 });
 
@@ -70,24 +47,24 @@ class BookMenu extends React.Component {
         <div className={classes.actions}>
           <Link to="/about">
             <Button raised color="primary" className={classes.button}>
-              {'Continue'}
+              {'CONTINUE'}
             </Button>
           </Link>
           <Link to={`${this.props.location.pathname}/page1`}>
             <Button raised color="primary" className={classes.button}>
-              {'New Adventure'}
+              {'NEW ADVENTURE'}
             </Button>
           </Link>
-          <Link to="/">
+          <Link to={`${this.props.location.pathname}/Credits`}>
             <Button raised color="primary" className={classes.button}>
-              {'Main Menu'}
+              {'CREDITS'}
             </Button>
           </Link>
         </div>
         <div className={classes.footer}>
-          <Link to={`${this.props.location.pathname}/Credits`}>
-            <Button raised color="primary" className={classes.buttonAbout}>
-              {'Credits'}
+          <Link to="/">
+            <Button raised color="accent" className={classes.button}>
+              {'MENU'}
             </Button>
           </Link>
         </div>
